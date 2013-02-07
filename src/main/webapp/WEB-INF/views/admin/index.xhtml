@@ -44,6 +44,7 @@
                             	<button type="submit" class="btn">Sign out</button>
                         	</form>
                         	<h:outputText value="#{userLoginBean.getLoggedUser().getUsername()}" styleClass="navbar-middle-right"/>
+                        	<h:outputText value="#{username}" />
                         </sec:authorize>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -23,7 +23,6 @@ public class AdminController extends AbstractController {
 	}
 	
 	public Boolean pepe() {
-		System.out.println("hola");
 		return false;
 		
 	}

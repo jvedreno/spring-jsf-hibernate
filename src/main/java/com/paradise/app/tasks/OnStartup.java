@@ -2,6 +2,7 @@ package com.paradise.app.tasks;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
@@ -12,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.paradise.app.domain.Group;
 import com.paradise.app.domain.User;
 import com.paradise.app.services.UserService;
-
-import freemarker.log.Logger;
 
 @Component
 public class OnStartup implements ApplicationListener<ContextRefreshedEvent> {

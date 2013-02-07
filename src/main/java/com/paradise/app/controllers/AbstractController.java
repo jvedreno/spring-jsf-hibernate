@@ -3,6 +3,7 @@ package com.paradise.app.controllers;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -14,14 +15,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.paradise.app.services.ApplicationCacheService;
 
-import freemarker.log.Logger;
-
 public abstract class AbstractController {
 
 	protected Logger log = Logger.getLogger(this.getClass().getName());
 	
 	@Value( "#{wiringProperties['format.date']}" )
 	protected String dateFormat;
+	
 	@Value( "#{wiringProperties['buildEnv']}" )
 	protected String buildEnv;
 
@@ -42,6 +42,7 @@ public abstract class AbstractController {
 		if ( buildEnv == null ) {
 			buildEnv = "Unknown";
 		}
+		
 		return buildEnv;
 	}
 	

@@ -26,7 +26,6 @@ public class UserLoginBean {
 			if (userName != null) {
 				loggedUser = userService.findByUsername(userName);
 			}
-
 		}
 
 		return loggedUser;
