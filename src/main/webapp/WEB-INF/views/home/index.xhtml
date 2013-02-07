@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:a4j="http://richfaces.org/a4j"
+  	xmlns:rich="http://richfaces.org/rich">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"/>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="protected.html">My Project</a>
+                    
+                    <div class="nav-collapse collapse">
+                    	<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
+                        	<form action="j_spring_security_logout" class="navbar-form pull-right" method="POST">
+                            	<button type="submit" class="btn">Sign out</button>
+                        	</form>
+                        	<h:outputText value="#{userLoginBean.getLoggedUser().getUsername()}" styleClass="navbar-middle-right"/>
+                        </sec:authorize>
+                    	<sec:authorize ifNotGranted="ROLE_ADMIN, ROLE_USER">
+	                        <form action="j_spring_security_check" class="navbar-form pull-right" method="POST">
+	                            <input class="span2" type="text" name="j_username" placeholder="Username"/>
+	                            <input class="span2" type="password" name="j_password" placeholder="Password"/>
+	                            <button type="submit" class="btn">Sign in</button>
+	                        </form>
+	                     </sec:authorize>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areAllGranted('ROLE_ADMIN')}" />
+    </body>
+</html>
