@@ -8,8 +8,8 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 		<locale-config>
-			<default-locale>en</default-locale>
-			<supported-locale>de</supported-locale>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
 		</locale-config>
 		<message-bundle>gui.messages</message-bundle>
 	</application>
